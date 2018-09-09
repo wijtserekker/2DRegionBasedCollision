@@ -33,9 +33,9 @@ class Clock(Thread):
 
 os.system('xset r off')
 try:
-    r = [Rect(20, 20, 400, 200)]
+    r = [Rect(100, 100, 400, 200)]
     w = World(r, world_width, world_height)
-    p = Entity(500, 200, 40, 40, 100, w)
+    p = Entity(501, 200, 40, 40, 10, w)
     w.entities.append(p)
     v = WorldView(w, p)
     c = Clock(w, v)

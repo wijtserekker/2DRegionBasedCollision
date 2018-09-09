@@ -38,8 +38,6 @@ class Entity(Rect):
             # Check for collisions with this rect
             for region in self.world.regions:
                 if br.collides(region):
-                    region: 'Rect'
-                    print('COLLIDE')
                     if extra_check:
                         if (dx > 0 and dy > 0) or (dx < 0 and dy < 0):
                             x1, y1 = region.up_right_corn()
@@ -48,9 +46,7 @@ class Entity(Rect):
                             x1, y1 = region.up_left_corn()
                             x2, y2 = region.down_right_corn()
                         if not (u_line.is_above(x2, y2) and not l_line.is_above(x1, y1)):
-                            print('PASS')
                             continue
-                    print('STOP')
                     return
 
             self.x += dx
