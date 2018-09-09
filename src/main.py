@@ -3,11 +3,11 @@ import time
 from threading import Thread
 
 from entity import Entity
+from mymath import Rect
 from world import World
 from worldview import WorldView
 
-
-tick_length = 1/20
+tick_length = 1 / 20
 world_width = 1000
 world_height = 700
 
@@ -32,12 +32,14 @@ class Clock(Thread):
 
 
 os.system('xset r off')
-
-p = Entity(500, 200, 40, 40, 10)
-w = World([], p, world_width, world_height)
-v = WorldView(w, p)
-c = Clock(w, v)
-c.start()
-v.loop()
-
-os.system('xset r on')
+try:
+    r = [Rect(20, 20, 400, 200)]
+    w = World(r, world_width, world_height)
+    p = Entity(500, 200, 40, 40, 100, w)
+    w.entities.append(p)
+    v = WorldView(w, p)
+    c = Clock(w, v)
+    c.start()
+    v.loop()
+finally:
+    os.system('xset r on')

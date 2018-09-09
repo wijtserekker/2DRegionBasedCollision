@@ -1,12 +1,12 @@
 from entity import Entity
-from rect import Rect
+from mymath import Rect
 
 
 class World:
 
-    def __init__(self, regions: [Rect], player: Entity, w: int, h: int):
+    def __init__(self, regions: [Rect], w: int, h: int):
         self.regions = regions
-        self.entities = [player]
+        self.entities = []
         self.w = w
         self.h = h
 
