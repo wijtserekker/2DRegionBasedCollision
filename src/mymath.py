@@ -9,10 +9,10 @@ class Rect:
         self.h = h
 
     def collides(self, other):
-        return (self.x + self.w >= other.x and
-                other.x + other.w >= self.x and
-                self.y + self.h >= other.y and
-                other.y + other.h >= self.y)
+        return (self.x + self.w > other.x and
+                other.x + other.w > self.x and
+                self.y + self.h > other.y and
+                other.y + other.h > self.y)
 
     def up_left_corn(self):
         return self.x, self.y
@@ -25,6 +25,12 @@ class Rect:
 
     def down_right_corn(self):
         return self.x + self.w, self.y + self.h
+
+    def __str__(self):
+        return 'Rect(' + str(self.x) + ', ' + str(self.y) + ', ' + str(self.w) + ', ' + str(self.h) + ')'
+
+    def __repr__(self):
+        return 'Rect(' + str(self.x) + ', ' + str(self.y) + ', ' + str(self.w) + ', ' + str(self.h) + ')'
 
 
 class Line:

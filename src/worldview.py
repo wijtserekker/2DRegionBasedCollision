@@ -1,5 +1,5 @@
 import math
-import os
+
 from tkinter import *
 
 from entity import Entity
